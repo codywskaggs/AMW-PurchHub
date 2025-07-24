@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AM Woodland - Construction Purchasing Folder Structure</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    color: #333;
+  }
+  header {
+    background: #2e2e2e;
+    color: #d4af37;
+    padding: 10px 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header img {
+    height: 50px;
+  }
+
+  /* Hamburger button container */
+  .menu-button {
+    width: 30px;
+    height: 24px;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    transition: transform 2s ease-in-out;
+  }
+  .menu-button div {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: #d4af37;
+    transition: all 0.5s ease-in-out;
+  }
+  .menu-button div:nth-child(1) { top: 0; }
+  .menu-button div:nth-child(2) { top: 10px; }
+  .menu-button div:nth-child(3) { top: 20px; }
+
+  /* Spinning Square Phase */
+  .menu-button.spin-square {
+    transform: rotate(720deg) scale(1.2);
+    background: #d4af37;
+    border-radius: 4px;
+  }
+  .menu-button.spin-square div { opacity: 0; }
+
+  /* Back Arrow Phase */
+  .menu-button.back-arrow {
+    width: 30px;
+    height: 30px;
+    transform: rotate(0deg);
+  }
+  .menu-button.back-arrow::before,
+  .menu-button.back-arrow::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background: #d4af37;
+    left: 10px;
+    top: 5px;
+    border-radius: 2px;
+  }
+  .menu-button.back-arrow::before { transform: rotate(45deg); }
+  .menu-button.back-arrow::after { transform: rotate(-45deg); }
+
+  /* Menu Panel */
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 220px;
+    background: #333;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 2s ease, opacity 2s ease;
+    padding: 1rem;
+  }
+  nav.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  nav a {
+    display: block;
+    padding: 0.5rem 0;
+    color: #d4af37;
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+  }
+  nav a:hover { background: #444; }
+
+  .container {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  h2.section-title {
+    background: #d4af37;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  footer {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 10px;
+    margin-top: 20px;
+    color: #888;
+  }
+
+  /* Print Styling */
+  @media print {
+    body { background: #fff !important; color: #000 !important; }
+    header, nav, .menu-button { display: none !important; }
+    .container { max-width: 100%; }
+    h2.section-title { background: #000 !important; color: #fff !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="AMW_Logo.png" alt="AM Woodland Logo">
+  <div class="menu-button" id="menuBtn">
+    <div></div><div></div><div></div>
+  </div>
+</header>
+
+<nav id="menuPanel">
+  <a href="#purpose">Purpose & Roles</a>
+  <a href="#structure">Folder Structure & Examples</a>
+  <a href="#workflow">Workflow & Security</a>
+  <a href="#dosdonts">Do's & Don'ts</a>
+  <a href="#glossary">Glossary & Notes</a>
+  <a href="#quickref">Quick Reference</a>
+</nav>
+
+<div class="container">
+  <h2 id="purpose" class="section-title">Purpose & Roles</h2>
+  <p>This folder structure standardizes purchasing documentation, reduces errors, and ensures compliance.
+     It is maintained primarily by the Purchasing Coordinator but used by multiple roles.</p>
+  <table>
+    <tr><th>Role</th><th>Responsibility</th></tr>
+    <tr><td>Purchasing Coordinator</td><td>Maintain folder integrity, templates, and purchasing documentation.</td></tr>
+    <tr><td>Project Manager</td><td>Ensure project-specific data is correctly stored.</td></tr>
+    <tr><td>Accounting</td><td>Manage invoices, payments, and reconciliation files.</td></tr>
+    <tr><td>Field Supervisors</td><td>Submit receipts and site purchase records.</td></tr>
+  </table>
+
+  <h2 id="structure" class="section-title">Folder Structure & Examples</h2>
+  <ul>
+    <li>Administration
+      <ul><li>Templates & Forms</li><li>Policies & Procedures</li><li>Vendor Management</li></ul>
+    </li>
+    <li>Projects (Jobs)
+      <ul><li>Purchase Orders</li><li>Quotes & Estimates</li><li>Invoices & Receipts</li>
+          <li>Subcontracts & Agreements</li><li>Drawings & Specs</li></ul>
+    </li>
+    <li>Vendors & Suppliers
+      <ul><li>Contracts</li><li>Price Lists</li><li>Delivery Schedules</li></ul>
+    </li>
+    <li>Financial Tracking
+      <ul><li>Budgets</li><li>Job Costing</li><li>Reports & Reconciliations</li></ul>
+    </li>
+    <li>Archives
+      <ul><li>Completed Projects</li><li>Inactive Vendors</li></ul>
+    </li>
+    <li>Personal Tools
+      <ul><li>Reference Material</li><li>Macro & Script Tools</li><li>Quick Reference Screenshots</li></ul>
+    </li>
+  </ul>
+  <table>
+    <tr><th>Document Type</th><th>Example</th></tr>
+    <tr><td>Purchase Order</td><td>2025-07-23-PO-ABC_Lumber.pdf</td></tr>
+    <tr><td>Vendor Contract</td><td>VendorName-Contract-2025.pdf</td></tr>
+    <tr><td>Invoice</td><td>Invoice-ABC_Lumber-2025-07-23.pdf</td></tr>
+    <tr><td>Drawing</td><td>ProjectName-Section-Detail#-v1.pdf</td></tr>
+    <tr><td>Policy Document</td><td>SOP-Purchasing-2025.pdf</td></tr>
+  </table>
+
+  <h2 id="workflow" class="section-title">Workflow & Security</h2>
+  <p><strong>Workflow Example:</strong> Request → Purchasing Coordinator → Vendor Selection → PO Creation → Accounting → Archiving</p>
+  <p><strong>Data Security & Backup Tips:</strong> Use company-managed cloud storage, enable version history, schedule weekly backups, and restrict template editing rights.</p>
+
+  <h2 id="dosdonts" class="section-title">Do's & Don'ts</h2>
+  <table>
+    <tr><th>Do's</th><th>Don'ts</th></tr>
+    <tr><td>Use standardized file names</td><td>Store files outside designated folders</td></tr>
+    <tr><td>Archive completed projects promptly</td><td>Keep outdated templates active</td></tr>
+    <tr><td>Restrict edit access on core templates</td><td>Ignore backups or versioning</td></tr>
+    <tr><td>Ensure receipts are scanned promptly</td><td>Rely only on local machine storage</td></tr>
+  </table>
+
+  <h2 id="glossary" class="section-title">Glossary & Notes</h2>
+  <ul>
+    <li>PO – Purchase Order</li>
+    <li>RFI – Request for Information</li>
+    <li>SOP – Standard Operating Procedure</li>
+    <li>CO – Change Order</li>
+    <li>RFQ – Request for Quotation</li>
+  </ul>
+  <p><strong>Change Log Template:</strong></p>
+  <table>
+    <tr><th>Date</th><th>Description of Change</th><th>Changed By</th></tr>
+    <tr><td>YYYY-MM-DD</td><td>Added Vendors folder detail</td><td>Your Name</td></tr>
+  </table>
+
+  <h2 id="quickref" class="section-title">Quick Reference</h2>
+  <p>A one-page snapshot of folder hierarchy, workflow, and best practices.</p>
+</div>
+
+<footer>
+  © 2025 AM Woodland - Construction Purchasing Folder Structure
+</footer>
+
+<script>
+const btn = document.getElementById('menuBtn');
+const menu = document.getElementById('menuPanel');
+let open = false;
+
+btn.addEventListener('click', () => {
+  if (!open) {
+    btn.classList.add('spin-square');
+    setTimeout(() => {
+      btn.classList.remove('spin-square');
+      btn.classList.add('back-arrow');
+      menu.classList.add('show');
+    }, 2000);
+    open = true;
+  } else {
+    menu.classList.remove('show');
+    btn.classList.remove('back-arrow');
+    btn.classList.add('spin-square');
+    setTimeout(() => {
+      btn.classList.remove('spin-square');
+    }, 2000);
+    open = false;
+  }
+});
+</script>
+
+</body>
+</html>
