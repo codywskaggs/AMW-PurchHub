@@ -1,186 +1,216 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AM Woodland - Purchasing Folder Structure</title>
-  <style>
-    body {font-family: 'Segoe UI', sans-serif; margin: 0; background: #f5f5f5; color: #333; scroll-behavior: smooth;}
-    header, footer {background: #2E2E2E; color: #D8B07A; text-align: center; padding: 20px;}
-    header img {max-width: 150px; display: block; margin: 0 auto 10px;}
-    .menu-btn {display:none; font-size:28px; color:#D8B07A; background:none; border:none; position:absolute; top:15px; left:15px; cursor:pointer;}
-    nav {position:fixed; top:0; left:0; height:100%; width:220px; background:#2E2E2E; padding-top:60px; overflow-x:hidden; transition:transform 0.3s ease;}
-    nav a {padding:12px 20px; display:block; text-decoration:none; color:#D8B07A; transition:background 0.3s;}
-    nav a:hover {background:#444;}
-    main {margin-left:240px; padding:20px; transition:margin-left 0.3s;}
-    section {margin-bottom:60px; background:white; padding:30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.05); opacity:0; transform:translateY(20px); transition:all 0.6s ease;}
-    section.visible {opacity:1; transform:translateY(0);}
-    section h2 {background:#D8B07A; color:white; padding:10px 20px; border-radius:5px;}
-    ul.tree, ul.tree ul {list-style:none; padding-left:20px;}
-    ul.tree li::before {content:"• "; color:#D8B07A; font-weight:bold;}
-    table {width:100%; border-collapse:collapse; margin-top:15px;}
-    table th {background:#D8B07A; color:white; padding:10px; text-align:left;}
-    table td {padding:10px; border-bottom:1px solid #ddd;}
-    table tr:nth-child(even){background:#f9f9f9;}
-    .print-btn {position:fixed; top:20px; right:20px; background:#D8B07A; color:white; border:none; padding:10px 20px; cursor:pointer; border-radius:5px; font-size:1rem; z-index:999;}
-    footer {margin-top:40px;}
-    @media(max-width:768px){
-      nav {transform:translateX(-100%);}
-      nav.open {transform:translateX(0);}
-      main {margin-left:0;}
-      .menu-btn {display:block;}
-    }
-    @media print {nav, .print-btn, .menu-btn {display:none;} main {margin:0;} body{background:white;}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AM Woodland - Construction Purchasing Folder Structure</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #333;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #2e2e2e;
+            color: #d4af37;
+            padding: 10px 20px;
+        }
+        header img {
+            height: 40px;
+        }
+        nav {
+            display: none;
+            flex-direction: column;
+            background: #333;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+        }
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            padding: 15px;
+            border-bottom: 1px solid #555;
+        }
+        nav a:hover {
+            background: #444;
+        }
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h2.section-title {
+            background: #d4af37;
+            color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.8em;
+            padding: 10px;
+            margin-top: 20px;
+            color: #888;
+        }
+        /* Print styles */
+        @media print {
+            body {
+                background: #fff !important;
+                color: #000 !important;
+            }
+            header, nav, .hamburger {
+                display: none !important;
+            }
+            .container {
+                max-width: 100%;
+            }
+            h2.section-title {
+                background: #000 !important;
+                color: #fff !important;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <img src="AMW_Logo.png" alt="AM Woodland Logo">
+        <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+    </header>
+    <nav id="menu">
+        <a href="#purpose">Purpose & Roles</a>
+        <a href="#structure">Folder Structure & Examples</a>
+        <a href="#workflow">Workflow & Security</a>
+        <a href="#dosdonts">Do's & Don'ts</a>
+        <a href="#glossary">Glossary & Notes</a>
+        <a href="#quickref">Quick Reference</a>
+    </nav>
+    <div class="container">
+        <h2 id="purpose" class="section-title">Purpose & Roles</h2>
+        <p>This folder structure standardizes purchasing documentation, reduces errors, and ensures compliance.
+           It is maintained primarily by the Purchasing Coordinator but used by multiple roles.</p>
+        <table>
+            <tr><th>Role</th><th>Responsibility</th></tr>
+            <tr><td>Purchasing Coordinator</td><td>Maintain folder integrity, templates, and purchasing documentation.</td></tr>
+            <tr><td>Project Manager</td><td>Ensure project-specific data is correctly stored.</td></tr>
+            <tr><td>Accounting</td><td>Manage invoices, payments, and reconciliation files.</td></tr>
+            <tr><td>Field Supervisors</td><td>Submit receipts and site purchase records.</td></tr>
+        </table>
 
-<header>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-  <img src="AMW - C_LG.jpeg" alt="AM Woodland Logo" onerror="this.src='data:image/jpeg;base64,...';">
-  <h1>AM Woodland</h1>
-  <p>Construction Purchasing Folder Structure</p>
-</header>
-
-<nav id="sidebar">
-  <a href="#purpose">Purpose & Roles</a>
-  <a href="#structure">Folder Structure & Examples</a>
-  <a href="#workflow">Workflow & Security</a>
-  <a href="#dosdonts">Do's & Don'ts</a>
-  <a href="#glossary">Glossary & Notes</a>
-  <a href="#quickref">Quick Reference</a>
-</nav>
-
-<button class="print-btn" onclick="window.print()">Print</button>
-
-<main>
-  <section id="purpose">
-    <h2>Purpose & Roles</h2>
-    <p>This folder structure standardizes purchasing documentation, reduces errors, and ensures compliance. 
-    It is maintained primarily by the Purchasing Coordinator but used by multiple roles.</p>
-    <table>
-      <tr><th>Role</th><th>Responsibility</th></tr>
-      <tr><td>Purchasing Coordinator</td><td>Maintain folder integrity, templates, and purchasing documentation.</td></tr>
-      <tr><td>Project Manager</td><td>Ensure project-specific data is correctly stored.</td></tr>
-      <tr><td>Accounting</td><td>Manage invoices, payments, and reconciliation files.</td></tr>
-      <tr><td>Field Supervisors</td><td>Submit receipts and site purchase records.</td></tr>
-    </table>
-  </section>
-
-  <section id="structure">
-    <h2>Folder Structure & Examples</h2>
-    <ul class="tree">
-      <li>Administration
+        <h2 id="structure" class="section-title">Folder Structure & Examples</h2>
+        <p>Example folder hierarchy:</p>
         <ul>
-          <li>Templates & Forms</li>
-          <li>Policies & Procedures</li>
-          <li>Vendor Management</li>
+            <li>Administration
+                <ul>
+                    <li>Templates & Forms</li>
+                    <li>Policies & Procedures</li>
+                    <li>Vendor Management</li>
+                </ul>
+            </li>
+            <li>Projects (Jobs)
+                <ul>
+                    <li>Purchase Orders</li>
+                    <li>Quotes & Estimates</li>
+                    <li>Invoices & Receipts</li>
+                    <li>Subcontracts & Agreements</li>
+                    <li>Drawings & Specs</li>
+                </ul>
+            </li>
+            <li>Vendors & Suppliers
+                <ul>
+                    <li>Contracts</li>
+                    <li>Price Lists</li>
+                    <li>Delivery Schedules</li>
+                </ul>
+            </li>
+            <li>Financial Tracking
+                <ul>
+                    <li>Budgets</li>
+                    <li>Job Costing</li>
+                    <li>Reports & Reconciliations</li>
+                </ul>
+            </li>
+            <li>Archives
+                <ul>
+                    <li>Completed Projects</li>
+                    <li>Inactive Vendors</li>
+                </ul>
+            </li>
+            <li>Personal Tools
+                <ul>
+                    <li>Reference Material</li>
+                    <li>Macro & Script Tools</li>
+                    <li>Quick Reference Screenshots</li>
+                </ul>
+            </li>
         </ul>
-      </li>
-      <li>Projects (Jobs)
+        <table>
+            <tr><th>Document Type</th><th>Example</th></tr>
+            <tr><td>Purchase Order</td><td>2025-07-23-PO-ABC_Lumber.pdf</td></tr>
+            <tr><td>Vendor Contract</td><td>VendorName-Contract-2025.pdf</td></tr>
+            <tr><td>Invoice</td><td>Invoice-ABC_Lumber-2025-07-23.pdf</td></tr>
+            <tr><td>Drawing</td><td>ProjectName-Section-Detail#-v1.pdf</td></tr>
+            <tr><td>Policy Document</td><td>SOP-Purchasing-2025.pdf</td></tr>
+        </table>
+
+        <h2 id="workflow" class="section-title">Workflow & Security</h2>
+        <p><strong>Workflow Example:</strong> Request → Purchasing Coordinator → Vendor Selection → PO Creation → Accounting → Archiving</p>
+        <p><strong>Data Security & Backup Tips:</strong> Use company-managed cloud storage, enable version history, schedule weekly backups, and restrict template editing rights.</p>
+
+        <h2 id="dosdonts" class="section-title">Do's & Don'ts</h2>
+        <table>
+            <tr><th>Do's</th><th>Don'ts</th></tr>
+            <tr><td>Use standardized file names</td><td>Store files outside designated folders</td></tr>
+            <tr><td>Archive completed projects promptly</td><td>Keep outdated templates active</td></tr>
+            <tr><td>Restrict edit access on core templates</td><td>Ignore backups or versioning</td></tr>
+            <tr><td>Ensure receipts are scanned promptly</td><td>Rely only on local machine storage</td></tr>
+        </table>
+
+        <h2 id="glossary" class="section-title">Glossary & Notes</h2>
+        <p><strong>Glossary:</strong></p>
         <ul>
-          <li>Purchase Orders</li>
-          <li>Quotes & Estimates</li>
-          <li>Invoices & Receipts</li>
-          <li>Subcontracts & Agreements</li>
-          <li>Drawings & Specs</li>
+            <li>PO – Purchase Order</li>
+            <li>RFI – Request for Information</li>
+            <li>SOP – Standard Operating Procedure</li>
+            <li>CO – Change Order</li>
+            <li>RFQ – Request for Quotation</li>
         </ul>
-      </li>
-      <li>Vendors & Suppliers
-        <ul>
-          <li>Contracts</li>
-          <li>Price Lists</li>
-          <li>Delivery Schedules</li>
-        </ul>
-      </li>
-      <li>Financial Tracking
-        <ul>
-          <li>Budgets</li>
-          <li>Job Costing</li>
-          <li>Reports & Reconciliations</li>
-        </ul>
-      </li>
-      <li>Archives
-        <ul>
-          <li>Completed Projects</li>
-          <li>Inactive Vendors</li>
-        </ul>
-      </li>
-      <li>Personal Tools
-        <ul>
-          <li>Reference Material</li>
-          <li>Macro & Script Tools</li>
-          <li>Quick Reference Screenshots</li>
-        </ul>
-      </li>
-    </ul>
-    <table>
-      <tr><th>Document Type</th><th>Example</th></tr>
-      <tr><td>Purchase Order</td><td>2025-07-23-PO-ABC_Lumber.pdf</td></tr>
-      <tr><td>Vendor Contract</td><td>VendorName-Contract-2025.pdf</td></tr>
-      <tr><td>Invoice</td><td>Invoice-ABC_Lumber-2025-07-23.pdf</td></tr>
-      <tr><td>Drawing</td><td>ProjectName-Section-Detail#-v1.pdf</td></tr>
-      <tr><td>Policy Document</td><td>SOP-Purchasing-2025.pdf</td></tr>
-    </table>
-  </section>
+        <p><strong>Change Log Template:</strong></p>
+        <table>
+            <tr><th>Date</th><th>Description of Change</th><th>Changed By</th></tr>
+            <tr><td>YYYY-MM-DD</td><td>Added Vendors folder detail</td><td>Your Name</td></tr>
+        </table>
 
-  <section id="workflow">
-    <h2>Workflow & Security</h2>
-    <p><strong>Workflow Example:</strong> Request → Purchasing Coordinator → Vendor Selection → PO Creation → Accounting → Archiving</p>
-    <p><strong>Data Security & Backup Tips:</strong></p>
-    <ul>
-      <li>Use company-managed cloud storage.</li>
-      <li>Enable version history.</li>
-      <li>Schedule weekly backups.</li>
-      <li>Restrict template editing rights.</li>
-    </ul>
-  </section>
-
-  <section id="dosdonts">
-    <h2>Do's & Don'ts</h2>
-    <table>
-      <tr><th>Do's</th><th>Don'ts</th></tr>
-      <tr><td>Use standardized file names</td><td>Store files outside designated folders</td></tr>
-      <tr><td>Archive completed projects promptly</td><td>Keep outdated templates active</td></tr>
-      <tr><td>Restrict edit access on core templates</td><td>Ignore backups or versioning</td></tr>
-      <tr><td>Ensure receipts are scanned promptly</td><td>Rely only on local machine storage</td></tr>
-    </table>
-  </section>
-
-  <section id="glossary">
-    <h2>Glossary & Notes</h2>
-    <p><strong>Glossary:</strong><br>
-      PO – Purchase Order<br>
-      RFI – Request for Information<br>
-      SOP – Standard Operating Procedure<br>
-      CO – Change Order<br>
-      RFQ – Request for Quotation</p>
-    <p><strong>Change Log Template:</strong><br>
-      Date | Description of Change | Changed By<br>
-      YYYY-MM-DD | Added Vendors folder detail | Your Name</p>
-    <p><strong>Notes:</strong><br>Date: __________   Notes: ____________________________________________</p>
-  </section>
-
-  <section id="quickref">
-    <h2>Quick Reference</h2>
-    <p>A one-page snapshot of folder hierarchy, workflow, and best practices.</p>
-  </section>
-</main>
-
-<footer>
-  <p>&copy; 2025 AM Woodland - Construction Purchasing Folder Structure</p>
-</footer>
-
-<script>
-  const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, {threshold: 0.1});
-  sections.forEach(sec => observer.observe(sec));
-
-  function toggleMenu(){ document.getElementById('sidebar').classList.toggle('open'); }
-</script>
-
+        <h2 id="quickref" class="section-title">Quick Reference</h2>
+        <p>A one-page snapshot of folder hierarchy, workflow, and best practices.</p>
+    </div>
+    <footer>
+        © 2025 AM Woodland - Construction Purchasing Folder Structure
+    </footer>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+        }
+    </script>
 </body>
 </html>
