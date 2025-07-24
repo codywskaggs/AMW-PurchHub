@@ -330,6 +330,9 @@
             <a href="#glossary">Glossary & Notes</a>
             <a href="#quick">Quick Reference</a>
         </div>
+        <div>
+            <a href="log.html" style="color: #aaa; margin-top: 2rem;">Change Log</a>
+        </div>
     </nav>
     
     <main>
